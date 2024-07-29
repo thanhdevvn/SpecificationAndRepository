@@ -23,14 +23,18 @@ namespace MyCookingMaster.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<User>> GetUsers()
         {
-            return _unitOfWork.Repository<User>().Find(new UsersWithRecipesAndIngredientsSpecification()).ToList();
+            return _unitOfWork.Repository<User>()
+                .Find(new UsersWithRecipesAndIngredientsSpecification())
+                .ToList();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
         public ActionResult<User> GetUser(int id)
         {
-            var user = _unitOfWork.Repository<User>().Find(new UsersWithRecipesAndIngredientsSpecification(id)).SingleOrDefault();
+            var user = _unitOfWork.Repository<User>()
+                .Find(new UsersWithRecipesAndIngredientsSpecification(id))
+                .SingleOrDefault();
 
             if (user == null)
             {

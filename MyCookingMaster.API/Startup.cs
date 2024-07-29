@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyCookingMaster.BL.Interfaces;
 using MyCookingMaster.DAL;
+using System.Text.Json.Serialization;
 
 namespace MyCookingMaster.API
 {
@@ -24,11 +24,18 @@ namespace MyCookingMaster.API
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            services.AddMvc()
+                .AddMvcOptions(setup =>
+                {
+                    setup.EnableEndpointRouting = false;
+                })
                 .AddJsonOptions(options =>
                 {
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                 });
+
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
@@ -39,6 +46,8 @@ namespace MyCookingMaster.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
             else
             {
@@ -46,7 +55,7 @@ namespace MyCookingMaster.API
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            app.UseHttpsRedirection();            
             app.UseMvc();
         }
     }

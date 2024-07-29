@@ -1,13 +1,13 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCookingMaster.API", "MyCookingMaster.API\MyCookingMaster.API.csproj", "{E7A75D92-8A9A-4AA2-993F-BA4E2B0BC6C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCookingMaster.API", "MyCookingMaster.API\MyCookingMaster.API.csproj", "{E7A75D92-8A9A-4AA2-993F-BA4E2B0BC6C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCookingMaster.BL", "MyCookingMaster.BL\MyCookingMaster.BL.csproj", "{C1AD4702-1D3F-415F-B8B4-3D38A1F77244}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCookingMaster.BL", "MyCookingMaster.BL\MyCookingMaster.BL.csproj", "{C1AD4702-1D3F-415F-B8B4-3D38A1F77244}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCookingMaster.DAL", "MyCookingMaster.DAL\MyCookingMaster.DAL.csproj", "{A55C66F9-6F88-4AEE-A65C-EE38C67C2047}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCookingMaster.DAL", "MyCookingMaster.DAL\MyCookingMaster.DAL.csproj", "{A55C66F9-6F88-4AEE-A65C-EE38C67C2047}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
